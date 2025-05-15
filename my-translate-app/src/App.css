@@ -1,0 +1,25 @@
+.language-switcher {
+  position: relative;
+  display: inline-block;
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid #ccc;
+  background-color: white;
+  z-index: 10;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.language-dropdown li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.language-dropdown li:hover {
+  background-color: #f0f0f0;
+}

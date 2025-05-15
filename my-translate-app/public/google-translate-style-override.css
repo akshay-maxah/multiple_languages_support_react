@@ -1,0 +1,64 @@
+/* Try targeting elements with specific classes that might appear on hover */
+.goog-text-highlight,
+.goog-text-highlight * { /* Apply to children as well */
+  background-color: transparent !important;
+  box-shadow: none !important; /* Try removing shadows as well */
+  outline: none !important;
+}
+
+/* If you see inline styles being added, try to override them */
+body *[style*="background-color: yellow"] { /* Example, adjust color */
+  background-color: transparent !important;
+}
+
+/* Target elements within the main content area that might be affected */
+#root * { /* Be cautious with this, it's very broad */
+  -webkit-tap-highlight-color: transparent !important; /* For mobile tap highlight */
+}
+
+.skiptranslate,
+#goog-gt-vt,
+.VIpgJd-suEOdc.VIpgJd-yAWNEb-L7lbkb.skiptranslate {
+  display: none !important;
+}
+
+
+/* Target <font> tags inserted by Google Translate */
+.skiptranslate font {
+  background-color: transparent !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.skiptranslate font:hover {
+  background-color: transparent !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* More specific targeting within your content area */
+#root h1 font,
+#root p font,
+#root div font,
+#root span font {
+  background-color: transparent !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#root h1 font:hover,
+#root p font:hover,
+#root div font:hover,
+#root span font:hover {
+  background-color: transparent !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}

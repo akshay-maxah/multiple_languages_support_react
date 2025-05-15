@@ -1,26 +1,31 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 
 const LanguageSwitcher = ({ onLanguageChange }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("en"); // Default to English
+  const [currentLanguageCode, setCurrentLanguageCode] = useState("en"); // Default to English
   const dropdownRef = useRef(null);
 
   const languageCodes = {
     en: "English",
-    hi: "Hindi", // Corrected language code for Hindi
+    hi: "Hindi",
     ta: "Tamil",
     te: "Telugu",
     ml: "Malayalam",
     gu: "Gujarati",
   };
 
-  const handleChange = (languageCode) => {
+  const handleLanguageSelect = useCallback((code) => {
     setIsOpen(false);
-    setSelectedLanguage(languageCode);
+    setCurrentLanguageCode(code);
+    console.log("Selected Language Code:", code);
     if (onLanguageChange) {
-      onLanguageChange(languageCode);
+      onLanguageChange(code);
     }
-  };
+  }, [onLanguageChange]);
+
+  const toggleOpen = useCallback(() => {
+    setIsOpen((prevIsOpen) => !prevIsOpen);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -37,14 +42,14 @@ const LanguageSwitcher = ({ onLanguageChange }) => {
 
   return (
     <div className="language-switcher" ref={dropdownRef}>
-      <button onClick={() => setIsOpen(!isOpen)}>
-        {languageCodes[selectedLanguage] || "Language"}
+      <button className="notranslate" onClick={toggleOpen}>
+        {languageCodes[currentLanguageCode] || "Language"}
       </button>
       {isOpen && (
         <ul className="language-dropdown">
-          {Object.entries(languageCodes).map(([code, name]) => (
-            <li key={code} onClick={() => handleChange(code)}>
-              {name}
+          {Object.keys(languageCodes).map((code) => (
+            <li key={code} onClick={() => handleLanguageSelect(code)}>
+              <span className="notranslate">{languageCodes[code]}</span>
             </li>
           ))}
         </ul>

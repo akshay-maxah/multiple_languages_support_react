@@ -62,3 +62,7 @@ body *[style*="background-color: yellow"] { /* Example, adjust color */
   outline: none !important;
   box-shadow: none !important;
 }
+
+.skiptranslate font font:lang(hi) { /* Example targeting, adjust based on inspection */
+  color: transparent !important;
+}

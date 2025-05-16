@@ -6,9 +6,9 @@
   outline: none !important;
 }
 
-/* If you see inline styles being added, try to override them */
-body *[style*="background-color: yellow"] { /* Example, adjust color */
-  background-color: transparent !important;
+body,
+body * {
+  top: 0 !important;
 }
 
 /* Target elements within the main content area that might be affected */
@@ -22,16 +22,8 @@ body *[style*="background-color: yellow"] { /* Example, adjust color */
   display: none !important;
 }
 
-
 /* Target <font> tags inserted by Google Translate */
-.skiptranslate font {
-  background-color: transparent !important;
-  color: inherit !important;
-  text-decoration: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
+.skiptranslate font,
 .skiptranslate font:hover {
   background-color: transparent !important;
   color: inherit !important;
@@ -44,14 +36,7 @@ body *[style*="background-color: yellow"] { /* Example, adjust color */
 #root h1 font,
 #root p font,
 #root div font,
-#root span font {
-  background-color: transparent !important;
-  color: inherit !important;
-  text-decoration: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
+#root span font,
 #root h1 font:hover,
 #root p font:hover,
 #root div font:hover,
